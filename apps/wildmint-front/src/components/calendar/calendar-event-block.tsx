@@ -47,7 +47,7 @@ export function CalendarEventBlock({ layout }: CalendarEventBlockProps) {
 			) : null}
 
 			<div className="relative z-10 min-w-0">
-				<div className="truncate font-medium leading-tight pr-7">
+				<div className="wrap-break-word pr-7 font-medium leading-tight">
 					{event.artist}
 				</div>
 				{height >= 28 ? (
@@ -59,7 +59,7 @@ export function CalendarEventBlock({ layout }: CalendarEventBlockProps) {
 
 			<EventFavoriteButton
 				eventId={event.id}
-				className="absolute top-0.5 right-0.5 z-20"
+				className="absolute top-0.5 right-0.5 z-10"
 			/>
 		</div>
 	);

@@ -37,7 +37,7 @@ export const CalendarGrid = forwardRef<HTMLDivElement, CalendarGridProps>(
 							visibleScenes.length * SCENE_COLUMN_MIN_WIDTH_PX,
 					}}
 				>
-					<div className="sticky top-0 z-20 flex shrink-0 border-b bg-background">
+					<div className="sticky top-0 z-30 flex shrink-0 border-b bg-background">
 						<div
 							className="shrink-0 border-r bg-background"
 							style={{ width: TIME_COLUMN_WIDTH_PX }}
@@ -54,7 +54,7 @@ export const CalendarGrid = forwardRef<HTMLDivElement, CalendarGridProps>(
 					</div>
 
 					<div
-						className="relative flex flex-1"
+						className="relative z-0 flex flex-1"
 						style={{ minHeight: calendarHeight }}
 					>
 						<TimeGutter hourHeight={hourHeight} />
