@@ -28,7 +28,7 @@ interface SettingsState {
 export const useSettingsStore = create<SettingsState>()(
 	persist(
 		(set) => ({
-			theme: "auto",
+			theme: "dark",
 			visibleScenes: DEFAULT_VISIBLE_SCENES,
 			calendarCellSize: "md",
 			lastCalendarDate: null,

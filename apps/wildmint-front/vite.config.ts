@@ -22,8 +22,8 @@ const config = defineConfig({
         name: 'Wildmint Calendar',
         short_name: 'Wildmint',
         description: 'Festival schedule and map',
-        theme_color: '#000000',
-        background_color: '#ffffff',
+        theme_color: '#0c0a09',
+        background_color: '#0c0a09',
         display: 'standalone',
         start_url: '/',
         icons: [

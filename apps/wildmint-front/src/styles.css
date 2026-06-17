@@ -98,6 +98,10 @@ body {
   --sidebar-ring: oklch(0.709 0.01 56.259);
 }
 
+html.dark {
+  color-scheme: dark;
+}
+
 .dark {
   --background: oklch(0.147 0.004 49.25);
   --foreground: oklch(0.985 0.001 106.423);

@@ -17,6 +17,10 @@ export const Route = createRootRoute({
 				content: "width=device-width, initial-scale=1",
 			},
 			{
+				name: "theme-color",
+				content: "#0c0a09",
+			},
+			{
 				title: "TanStack Start Starter",
 			},
 		],
@@ -36,8 +40,13 @@ export const Route = createRootRoute({
 
 function RootDocument({ children }: { children: React.ReactNode }) {
 	return (
-		<html lang="en">
+		<html lang="en" className="dark" suppressHydrationWarning>
 			<head>
+				<script
+					dangerouslySetInnerHTML={{
+						__html: `(function(){try{var d=JSON.parse(localStorage.getItem("wildmint-settings")||"{}");var t=d.state&&d.state.theme||"dark";var dark=t==="dark"||(t==="auto"&&matchMedia("(prefers-color-scheme: dark)").matches);document.documentElement.classList.toggle("dark",dark)}catch(e){}})();`,
+					}}
+				/>
 				<HeadContent />
 			</head>
 			<body>
