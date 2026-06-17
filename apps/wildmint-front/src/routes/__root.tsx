@@ -3,6 +3,7 @@ import { createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
 
 import { AppLayout } from "@/components/app-layout";
+import { buildSiteHeadMeta } from "@/lib/site-meta";
 import appCss from "../styles.css?url";
 
 export const Route = createRootRoute({
@@ -32,9 +33,7 @@ export const Route = createRootRoute({
 				name: "apple-mobile-web-app-title",
 				content: "Дикая Мята.",
 			},
-			{
-				title: "Дикая мята календарь",
-			},
+			...buildSiteHeadMeta(),
 		],
 		links: [
 			{
@@ -56,7 +55,7 @@ export const Route = createRootRoute({
 
 function RootDocument({ children }: { children: React.ReactNode }) {
 	return (
-		<html lang="en" className="dark" suppressHydrationWarning>
+		<html lang="ru" className="dark" suppressHydrationWarning>
 			<head>
 				<script
 					dangerouslySetInnerHTML={{

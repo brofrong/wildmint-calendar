@@ -18,7 +18,7 @@ const config = defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       injectRegister: false,
-      includeAssets: ['favicon.ico', 'robots.txt', 'logo192.png', 'logo512.png'],
+      includeAssets: ['favicon.ico', 'robots.txt', 'logo192.png', 'logo512.png', 'img/app-showcase.png'],
       manifest: {
         name: 'Дикая Мята.',
         short_name: 'Дикая Мята.',
