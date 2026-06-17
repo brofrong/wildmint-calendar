@@ -6,7 +6,6 @@ import {
 } from "@/lib/calendar/constants";
 import type { LayoutedEvent } from "@/lib/calendar/layout-events";
 import type { Scene } from "@/lib/events";
-import { getSceneColor } from "@/lib/events";
 
 type SceneColumnProps = {
 	scene: Scene;
@@ -15,7 +14,6 @@ type SceneColumnProps = {
 };
 
 export function SceneColumn({ scene, hourHeight, events }: SceneColumnProps) {
-	const color = getSceneColor(scene);
 	const calendarHeight = getCalendarHeight(hourHeight);
 
 	return (
@@ -33,11 +31,6 @@ export function SceneColumn({ scene, hourHeight, events }: SceneColumnProps) {
 					style={{ top: hour * hourHeight }}
 				/>
 			))}
-
-			<div
-				className="pointer-events-none absolute inset-x-0 top-0 h-1"
-				style={{ backgroundColor: color }}
-			/>
 
 			{events.map((layout) => (
 				<CalendarEventBlock key={layout.id} layout={layout} />

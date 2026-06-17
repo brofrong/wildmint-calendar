@@ -11,6 +11,7 @@ import {
 import type { LayoutedEvent } from "@/lib/calendar/layout-events";
 import { useCurrentTimeLineTop } from "@/lib/calendar/use-current-time-line";
 import type { Scene } from "@/lib/events";
+import { getSceneColor } from "@/lib/events";
 
 type CalendarGridProps = {
 	festivalDay: string;
@@ -37,16 +38,19 @@ export const CalendarGrid = forwardRef<HTMLDivElement, CalendarGridProps>(
 							visibleScenes.length * SCENE_COLUMN_MIN_WIDTH_PX,
 					}}
 				>
-					<div className="sticky top-0 z-30 flex shrink-0 border-b bg-background">
+					<div className="sticky top-0 z-30 flex shrink-0 bg-background">
 						<div
-							className="shrink-0 border-r bg-background"
+							className="shrink-0 border-r border-b bg-background"
 							style={{ width: TIME_COLUMN_WIDTH_PX }}
 						/>
 						{visibleScenes.map((scene) => (
 							<div
 								key={scene}
-								className="shrink-0 border-r px-2 py-2 text-center text-xs font-semibold"
-								style={{ minWidth: SCENE_COLUMN_MIN_WIDTH_PX }}
+								className="shrink-0 border-r px-2 py-2 text-center text-xs font-semibold border-b-[3px]"
+								style={{
+									minWidth: SCENE_COLUMN_MIN_WIDTH_PX,
+									borderBottomColor: getSceneColor(scene),
+								}}
 							>
 								{scene}
 							</div>

@@ -68,7 +68,7 @@ function FavoritesPage() {
 	const hasFavorites = daysWithEvents.length > 0;
 
 	return (
-		<div className="mx-auto w-full max-w-sm space-y-6 p-4 md:max-w-md">
+		<div className="mx-auto w-full space-y-6 p-6 md:max-w-md">
 			<h1 className="text-2xl font-semibold">Любимые</h1>
 
 			{!hasFavorites ? (

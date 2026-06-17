@@ -31,20 +31,19 @@ export function CalendarHeader({
 	};
 
 	return (
-		<div className="flex flex-wrap items-center justify-between gap-3 border-b bg-background px-4 py-3">
-			<div className="min-w-0">
-				<h1 className="truncate text-lg font-semibold capitalize">
-					{formatDisplayDate(date)}
-				</h1>
-			</div>
+		<div className="flex items-center gap-2 border-b bg-background px-4 py-3 md:justify-between md:gap-3">
+			<h1 className="hidden truncate text-lg font-semibold capitalize md:block">
+				{formatDisplayDate(date)}
+			</h1>
 
-			<div className="flex items-center gap-2">
+			<div className="flex min-w-0 flex-1 items-center gap-2 md:flex-initial">
 				<Button
 					variant="outline"
 					size="icon"
 					aria-label="Предыдущий день"
 					onClick={goToPreviousDay}
 					disabled={!previousDate}
+					className="shrink-0"
 				>
 					<ChevronLeft />
 				</Button>
@@ -52,7 +51,7 @@ export function CalendarHeader({
 				<select
 					value={date}
 					onChange={(event) => onDateChange(event.target.value)}
-					className="h-8 max-w-[9.5rem] truncate rounded-lg border border-input bg-background px-2 text-sm"
+					className="h-9 min-w-0 flex-1 truncate rounded-lg border border-input bg-background px-2 text-sm md:h-8 md:max-w-[9.5rem] md:flex-none"
 				>
 					{availableDates.map((availableDate) => (
 						<option key={availableDate} value={availableDate}>
@@ -67,6 +66,7 @@ export function CalendarHeader({
 					aria-label="Следующий день"
 					onClick={goToNextDay}
 					disabled={!nextDate}
+					className="shrink-0"
 				>
 					<ChevronRight />
 				</Button>
