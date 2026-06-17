@@ -30,10 +30,10 @@ export const Route = createRootRoute({
 			},
 			{
 				name: "apple-mobile-web-app-title",
-				content: "Wildmint",
+				content: "Дикая Мята.",
 			},
 			{
-				title: "Wildmint Calendar",
+				title: "Дикая мята календарь",
 			},
 		],
 		links: [

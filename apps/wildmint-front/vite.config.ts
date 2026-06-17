@@ -20,8 +20,8 @@ const config = defineConfig({
       injectRegister: false,
       includeAssets: ['favicon.ico', 'robots.txt', 'logo192.png', 'logo512.png'],
       manifest: {
-        name: 'Wildmint Calendar',
-        short_name: 'Wildmint',
+        name: 'Дикая Мята.',
+        short_name: 'Дикая Мята.',
         description: 'Festival schedule and map',
         theme_color: '#0c0a09',
         background_color: '#0c0a09',
