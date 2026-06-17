@@ -41,9 +41,10 @@ async function generateServiceWorker() {
 				"logo512.png",
 				"manifest.webmanifest",
 				"img/**/*.{webp,png,jpg,jpeg}",
+				"musician/**/*.webp",
 			],
-			globIgnores: ["sw-src.js", "sw.js", "musician/**"],
-			maximumFileSizeToCacheInBytes: 3 * 1024 * 1024,
+			globIgnores: ["sw-src.js", "sw.js"],
+			maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
 		});
 
 		unlinkSync(tempSwPath);

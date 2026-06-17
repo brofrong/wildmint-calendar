@@ -15,7 +15,19 @@ const server = Bun.serve({
 		if (pathname !== "/") {
 			const file = Bun.file(`${CLIENT_DIRECTORY}${pathname}`)
 			if (await file.exists()) {
-				return new Response(file)
+				const headers = new Headers()
+				if (
+					pathname.startsWith("/musician/") ||
+					pathname.startsWith("/img/") ||
+					pathname.startsWith("/assets/") ||
+					/\.(webp|png|jpe?g|ico|woff2|js|css)$/i.test(pathname)
+				) {
+					headers.set(
+						"Cache-Control",
+						"public, max-age=31536000, immutable",
+					)
+				}
+				return new Response(file, { headers })
 			}
 		}
 

@@ -17,6 +17,7 @@ const config = defineConfig({
     // Manifest only — sw.js is generated post-build via scripts/generate-sw.ts
     VitePWA({
       registerType: 'autoUpdate',
+      injectRegister: false,
       includeAssets: ['favicon.ico', 'robots.txt', 'logo192.png', 'logo512.png'],
       manifest: {
         name: 'Wildmint Calendar',

@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
+import { AppVersionBadge } from "@/components/settings/app-version-badge";
 import { CalendarCellSizeSetting } from "@/components/settings/calendar-cell-size-setting";
 import { DevTimeSetting } from "@/components/settings/dev-time-setting";
 import { SceneSettingRow } from "@/components/settings/scenes-setting";
@@ -33,6 +34,8 @@ function SettingsPage() {
 					<DevTimeSetting key="dev-time" />
 				</SettingsSection>
 			) : null}
+
+			<AppVersionBadge />
 		</div>
 	);
 }
