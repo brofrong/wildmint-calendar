@@ -1,7 +1,9 @@
 import { EventFavoriteButton } from "@/components/calendar/event-favorite-button";
+import { FriendLikesIndicator } from "@/components/friends/friend-likes-indicator";
 import type { LayoutedEvent } from "@/lib/calendar/layout-events";
 import { formatEventTimeRange } from "@/lib/favorites/format-event-time";
 import { getSceneColor } from "@/lib/events";
+import { useFriendsWhoLikeEvent } from "@/stores/social-store";
 import { cn } from "@/lib/utils";
 
 type CalendarEventBlockProps = {
@@ -13,6 +15,7 @@ export function CalendarEventBlock({ layout }: CalendarEventBlockProps) {
 	const color = getSceneColor(event.scene);
 	const timeRange = formatEventTimeRange(event.startDate, event.endDate);
 	const hasImage = Boolean(event.image);
+	const friendsWhoLike = useFriendsWhoLikeEvent(event.id);
 
 	return (
 		<div
@@ -61,6 +64,15 @@ export function CalendarEventBlock({ layout }: CalendarEventBlockProps) {
 				eventId={event.id}
 				className="absolute top-0.5 right-0.5 z-10"
 			/>
+
+			{friendsWhoLike.length > 0 ? (
+				<div className="absolute bottom-0.5 left-0.5 z-10">
+					<FriendLikesIndicator
+						friends={friendsWhoLike}
+						size="sm"
+					/>
+				</div>
+			) : null}
 		</div>
 	);
 }

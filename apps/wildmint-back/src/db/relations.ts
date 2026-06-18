@@ -1,15 +1,28 @@
 import { defineRelations } from "drizzle-orm";
-import { friendsTable, usersTable } from "./user.schema";
+import {
+	favoriteEventsTable,
+	friendshipsTable,
+	usersTable,
+} from "./user.schema";
 
-
-export const relations = defineRelations({user: usersTable, friends: friendsTable}, (r) => ({
-  user:{
-    friends: r.many.friends(),
-  },
-  friends: {
-    user: r.one.user({
-      from: r.friends.userId,
-      to: r.user.id,
-    }),
-  },
-}));
+export const relations = defineRelations(
+	{ users: usersTable, friendships: friendshipsTable, favoriteEvents: favoriteEventsTable },
+	(r) => ({
+		users: {
+			friendships: r.many.friendships(),
+			favoriteEvents: r.many.favoriteEvents(),
+		},
+		friendships: {
+			user: r.one.users({
+				from: r.friendships.userId,
+				to: r.users.id,
+			}),
+		},
+		favoriteEvents: {
+			user: r.one.users({
+				from: r.favoriteEvents.userId,
+				to: r.users.id,
+			}),
+		},
+	}),
+);

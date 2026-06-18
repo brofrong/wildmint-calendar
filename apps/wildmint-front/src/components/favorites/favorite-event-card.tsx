@@ -1,8 +1,10 @@
 import { ArtistPhoto } from "@/components/artist-photo";
+import { FriendLikesIndicator } from "@/components/friends/friend-likes-indicator";
 import type { Event } from "@/lib/events";
 import { getSceneColor } from "@/lib/events";
 import { isEventPast } from "@/lib/favorites/is-event-past";
 import { formatEventTimeOnly } from "@/lib/favorites/format-event-time";
+import { useFriendsWhoLikeEvent } from "@/stores/social-store";
 import { cn } from "@/lib/utils";
 
 type FavoriteEventCardProps = {
@@ -15,6 +17,7 @@ export function FavoriteEventCard({ event, now }: FavoriteEventCardProps) {
 	const startTime = formatEventTimeOnly(event.startDate);
 	const endTime = formatEventTimeOnly(event.endDate);
 	const isPast = isEventPast(event, now);
+	const friendsWhoLike = useFriendsWhoLikeEvent(event.id);
 
 	return (
 		<article
@@ -49,6 +52,9 @@ export function FavoriteEventCard({ event, now }: FavoriteEventCardProps) {
 				<div className="min-w-0 flex-1 space-y-1">
 					<div className="font-semibold leading-tight">{event.artist}</div>
 					<p className="text-sm text-muted-foreground">{event.scene}</p>
+					{friendsWhoLike.length > 0 ? (
+						<FriendLikesIndicator friends={friendsWhoLike} size="sm" />
+					) : null}
 				</div>
 			</div>
 
