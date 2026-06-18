@@ -29,7 +29,7 @@ export const CalendarGrid = forwardRef<HTMLDivElement, CalendarGridProps>(
 		const currentTimeTop = useCurrentTimeLineTop(festivalDay, hourHeight);
 
 		return (
-			<div ref={ref} className="h-full overflow-auto">
+			<div ref={ref} className="h-full overflow-auto pb-navbar">
 				<div
 					className="flex min-h-full min-w-max flex-col"
 					style={{

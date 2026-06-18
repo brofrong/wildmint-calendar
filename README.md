@@ -17,15 +17,15 @@
 
 ### Календарь
 
-![Расписание выступлений по сценам](img/calendar.png)
+<img src="img/calendar.png" width="320" alt="Расписание выступлений по сценам">
 
 ### Карта
 
-![Карта площадки фестиваля](img/map.png)
+<img src="img/map.png" width="320" alt="Карта площадки фестиваля">
 
 ### Избранное
 
-![Список любимых концертов](img/favorites.png)
+<img src="img/favorites.png" width="320" alt="Список любимых концертов">
 
 ---
 
