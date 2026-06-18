@@ -11,7 +11,7 @@ export const Route = createFileRoute("/about")({ component: AboutPage });
 
 function AboutPage() {
 	return (
-		<div className="mx-auto w-full md:max-w-md">
+		<div className="mx-auto w-full pb-24 md:max-w-md">
 			<header className="sticky top-0 z-10 flex items-center gap-2 border-b bg-background px-4 py-3">
 				<Button variant="ghost" size="icon-sm" asChild>
 					<Link to="/settings" aria-label="Назад">

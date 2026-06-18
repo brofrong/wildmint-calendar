@@ -14,7 +14,7 @@ export const Route = createFileRoute("/settings")({ component: SettingsPage });
 
 function SettingsPage() {
 	return (
-		<div className="mx-auto w-full space-y-6 p-6 md:max-w-md">
+		<div className="mx-auto w-full space-y-6 p-6 pb-24 md:max-w-md">
 			<h1 className="text-2xl font-semibold">Настройки</h1>
 
 			<SettingsSection title="Настройки приложения">

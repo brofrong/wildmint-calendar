@@ -7,7 +7,7 @@ export const Route = createFileRoute("/calendar")({ component: CalendarPage });
 
 function CalendarPage() {
 	return (
-		<div className="h-full">
+		<div className="h-full overflow-hidden">
 			<DayCalendar events={events} />
 		</div>
 	);
