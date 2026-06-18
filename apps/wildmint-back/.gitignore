@@ -4,7 +4,8 @@ node_modules
 # output
 out
 dist
-db/
+# SQLite data directory (not src/db/ source code)
+/db/
 *.tgz
 
 # code coverage

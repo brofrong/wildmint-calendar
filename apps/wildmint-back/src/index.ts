@@ -2,6 +2,7 @@ import { existsSync } from "node:fs"
 import { resolve } from "node:path"
 import { runMigrations } from "./db/migrate"
 
+console.log("Запуск приложения...")
 runMigrations()
 
 const SERVER_PORT = Number(process.env.PORT ?? 3000)
@@ -66,4 +67,4 @@ const server = Bun.serve({
 	},
 })
 
-console.log(`Server listening on http://0.0.0.0:${server.port}`)
+console.log(`Сервер запущен на порту ${server.port} (http://0.0.0.0:${server.port})`)
