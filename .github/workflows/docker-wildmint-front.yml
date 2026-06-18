@@ -1,4 +1,4 @@
-name: Docker — wildmint-front
+name: Docker — wildmint
 
 on:
   push:
@@ -6,6 +6,11 @@ on:
       - main
     paths:
       - "apps/wildmint-front/**"
+      - "apps/wildmint-back/**"
+      - "Dockerfile"
+      - ".dockerignore"
+      - "package.json"
+      - "bun.lock"
       - ".github/workflows/docker-wildmint-front.yml"
   workflow_dispatch:
 
@@ -39,8 +44,8 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v6
         with:
-          context: apps/wildmint-front
-          file: apps/wildmint-front/Dockerfile
+          context: .
+          file: Dockerfile
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}

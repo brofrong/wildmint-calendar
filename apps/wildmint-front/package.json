@@ -1,6 +1,6 @@
 {
   "name": "wildmint-front",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "type": "module",
   "imports": {
@@ -11,7 +11,6 @@
     "generate-routes": "tsr generate",
     "build": "vite build && bun run generate-sw",
     "generate-sw": "bun scripts/generate-sw.ts",
-    "start": "bun run server.ts",
     "preview": "vite preview",
     "test": "vitest run",
     "format": "biome format",

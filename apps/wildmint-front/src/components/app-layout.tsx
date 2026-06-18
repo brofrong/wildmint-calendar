@@ -13,7 +13,7 @@ export function AppLayout() {
 	return (
 		<div className="flex h-dvh flex-col overflow-hidden">
 			<ThemeProvider />
-			<main className="min-h-0 flex-1 overflow-y-auto overscroll-y-contain">
+			<main className="min-h-0 flex-1 overflow-y-auto overscroll-y-contain pb-24">
 				<Outlet />
 			</main>
 			<NavBar />

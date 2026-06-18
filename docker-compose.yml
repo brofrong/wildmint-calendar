@@ -1,0 +1,18 @@
+services:
+  wildmint:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: "3000"
+      # Абсолютный путь внутри контейнера; файл лежит в смонтированном volume
+      DB_FILE_NAME: /app/db/wildmint.sqlite
+    volumes:
+      # Named volume: данные SQLite сохраняются между перезапусками контейнера
+      - wildmint-db:/app/db
+    restart: unless-stopped
+
+volumes:
+  wildmint-db:

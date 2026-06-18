@@ -33,8 +33,8 @@ const navItems = [
 
 export function NavBar() {
 	return (
-		<nav className="z-50 flex shrink-0 justify-center px-4 pt-2 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
-			<div className="flex w-full max-w-sm items-stretch gap-1 rounded-full border border-border/40 bg-background/70 p-1 shadow-[0_4px_24px_rgba(0,0,0,0.08),0_1px_3px_rgba(0,0,0,0.06)] backdrop-blur-2xl backdrop-saturate-150 supports-backdrop-filter:bg-background/55 dark:border-white/10 dark:shadow-[0_4px_24px_rgba(0,0,0,0.35),0_1px_3px_rgba(0,0,0,0.2)] md:max-w-md">
+		<nav className="pointer-events-none fixed inset-x-0 bottom-0 z-50 flex justify-center px-4 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
+			<div className="pointer-events-auto flex w-full max-w-sm items-stretch gap-1 rounded-full border border-border/40 bg-background/70 p-1 shadow-[0_4px_24px_rgba(0,0,0,0.08),0_1px_3px_rgba(0,0,0,0.06)] backdrop-blur-2xl backdrop-saturate-150 supports-backdrop-filter:bg-background/55 dark:border-white/10 dark:shadow-[0_4px_24px_rgba(0,0,0,0.35),0_1px_3px_rgba(0,0,0,0.2)] md:max-w-md">
 				{navItems.map(({ to, label, icon: Icon, exact }) => (
 					<Button
 						key={to}
