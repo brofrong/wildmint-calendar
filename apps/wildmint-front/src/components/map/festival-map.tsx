@@ -9,7 +9,7 @@ const ZOOM_STEP = 0.35;
 
 export function FestivalMap() {
 	return (
-		<div className="relative h-[calc(100dvh-6rem-env(safe-area-inset-bottom))] w-full overflow-hidden bg-muted">
+		<div className="relative h-full w-full overflow-hidden bg-muted">
 			<TransformWrapper
 				initialScale={INITIAL_SCALE}
 				minScale={0.6}

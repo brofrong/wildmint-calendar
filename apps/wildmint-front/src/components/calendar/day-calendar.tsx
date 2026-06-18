@@ -58,7 +58,7 @@ export function DayCalendar({ events }: DayCalendarProps) {
 	}, [events, hourHeight, selectedDate]);
 
 	return (
-		<div className="flex h-[calc(100dvh-6rem)] flex-col">
+		<div className="flex h-full flex-col">
 			<CalendarHeader
 				date={selectedDate}
 				availableDates={availableDates}

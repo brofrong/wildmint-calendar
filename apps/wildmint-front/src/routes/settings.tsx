@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
+import { AboutAppSetting } from "@/components/settings/about-app-setting";
 import { AppVersionBadge } from "@/components/settings/app-version-badge";
 import { CalendarCellSizeSetting } from "@/components/settings/calendar-cell-size-setting";
 import { DevTimeSetting } from "@/components/settings/dev-time-setting";
@@ -19,6 +20,7 @@ function SettingsPage() {
 			<SettingsSection title="Настройки приложения">
 				<ThemeSetting key="theme" />
 				<InstallAppSetting key="install-app" />
+				<AboutAppSetting key="about-app" />
 			</SettingsSection>
 
 			<SettingsSection title="Календарь">

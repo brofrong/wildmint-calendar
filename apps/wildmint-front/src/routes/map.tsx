@@ -5,5 +5,9 @@ import { FestivalMap } from "@/components/map/festival-map";
 export const Route = createFileRoute("/map")({ component: MapPage });
 
 function MapPage() {
-	return <FestivalMap />;
+	return (
+		<div className="h-full">
+			<FestivalMap />
+		</div>
+	);
 }

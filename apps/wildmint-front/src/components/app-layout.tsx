@@ -11,9 +11,9 @@ export function AppLayout() {
 	}, []);
 
 	return (
-		<div className="flex min-h-dvh flex-col">
+		<div className="flex h-dvh flex-col overflow-hidden">
 			<ThemeProvider />
-			<main className="flex-1 pb-24">
+			<main className="min-h-0 flex-1 overflow-y-auto overscroll-y-contain">
 				<Outlet />
 			</main>
 			<NavBar />
