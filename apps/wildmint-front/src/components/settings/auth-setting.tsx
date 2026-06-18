@@ -18,6 +18,7 @@ import { useAuthStore } from "@/stores/auth-store";
 import { useFavoritesStore } from "@/stores/favorites-store";
 import { useSocialStore } from "@/stores/social-store";
 import { FriendsList } from "@/components/settings/friends-list";
+import { FriendsInfoDialog } from "@/components/settings/friends-info-dialog";
 
 function getInitials(name: string) {
 	return name
@@ -117,6 +118,8 @@ export function AuthSetting() {
 					</Button>
 				</SettingsRow>
 
+				<FriendsInfoDialog />
+
 				<ProfileFormDialog
 					open={authOpen}
 					onOpenChange={setAuthOpen}
@@ -203,6 +206,8 @@ export function AuthSetting() {
 				friends={friends}
 				onRemove={handleRemoveFriend}
 			/>
+
+			<FriendsInfoDialog />
 
 			<ProfileFormDialog
 				open={editOpen}

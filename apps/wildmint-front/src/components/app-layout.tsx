@@ -18,9 +18,9 @@ export function AppLayout() {
 
 	return (
 		<TooltipProvider>
-			<div className="flex h-dvh flex-col overflow-hidden">
+			<div className="flex h-dvh flex-col">
 				<ThemeProvider />
-				<main className="min-h-0 flex-1 overflow-y-auto overscroll-y-contain">
+				<main className="min-h-0 flex-1 overflow-y-auto">
 					<Outlet />
 				</main>
 				<NavBar />
