@@ -28,6 +28,7 @@ export const useFavoritesStore = create<FavoritesState>()(
 		}),
 		{
 			name: "wildmint-favorites",
+			skipHydration: true,
 		},
 	),
 );

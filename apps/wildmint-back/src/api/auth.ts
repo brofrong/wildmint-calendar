@@ -69,6 +69,10 @@ export async function handleAuthRequest(req: Request): Promise<Response | null> 
 			})
 			.returning();
 
+		console.log(
+			`Создан новый пользователь: id=${user.id}, name="${user.name}"`,
+		);
+
 		return withSessionCookie(
 			jsonResponse({ user: serializeUser(user) }),
 			token,

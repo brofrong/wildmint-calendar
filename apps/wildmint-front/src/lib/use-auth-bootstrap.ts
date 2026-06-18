@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 
 import { fetchCurrentUser, fetchSocial } from "@/lib/api/auth";
+import { rehydratePersistedStores } from "@/lib/rehydrate-persisted-stores";
 import { useAuthStore } from "@/stores/auth-store";
 import { useSocialStore } from "@/stores/social-store";
 
@@ -12,6 +13,11 @@ export function useAuthBootstrap() {
 		let cancelled = false;
 
 		async function bootstrap() {
+			await rehydratePersistedStores();
+			if (cancelled) {
+				return;
+			}
+
 			const result = await fetchCurrentUser();
 			if (cancelled) {
 				return;

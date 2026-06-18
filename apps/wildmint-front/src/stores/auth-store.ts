@@ -18,6 +18,7 @@ export const useAuthStore = create<AuthState>()(
 		}),
 		{
 			name: "wildmint-auth",
+			skipHydration: true,
 		},
 	),
 );

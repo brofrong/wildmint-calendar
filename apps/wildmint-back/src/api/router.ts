@@ -1,6 +1,7 @@
 import { handleAuthRequest } from "./auth";
 import { handleFavoritesRequest } from "./favorites";
 import { handleFriendsRequest } from "./friends";
+import { handleInfoRequest } from "./info";
 import { handlePingRequest } from "./ping";
 import { handleSocialRequest } from "./social";
 
@@ -10,6 +11,7 @@ const handlers = [
 	handleFriendsRequest,
 	handleFavoritesRequest,
 	handleSocialRequest,
+	handleInfoRequest,
 ];
 
 export async function handleApiRequest(req: Request): Promise<Response | null> {

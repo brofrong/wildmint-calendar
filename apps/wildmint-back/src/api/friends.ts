@@ -41,7 +41,10 @@ async function serializeFriend(userId: string) {
 	};
 }
 
-async function createFriendship(userId: string, friendId: string) {
+async function createFriendship(
+	userId: string,
+	friendId: string,
+): Promise<boolean> {
 	const existing = await db
 		.select()
 		.from(friendshipsTable)
@@ -54,7 +57,7 @@ async function createFriendship(userId: string, friendId: string) {
 		.limit(1);
 
 	if (existing.length > 0) {
-		return;
+		return false;
 	}
 
 	await db.insert(friendshipsTable).values({
@@ -62,6 +65,8 @@ async function createFriendship(userId: string, friendId: string) {
 		userId,
 		friendId,
 	});
+
+	return true;
 }
 
 export async function getFriendsForUser(userId: string) {
@@ -108,8 +113,14 @@ export async function handleFriendsRequest(req: Request): Promise<Response | nul
 			return jsonError("Пользователь не найден", 404);
 		}
 
-		await createFriendship(user.id, friendId);
-		await createFriendship(friendId, user.id);
+		const createdByUser = await createFriendship(user.id, friendId);
+		const createdByFriend = await createFriendship(friendId, user.id);
+
+		if (createdByUser || createdByFriend) {
+			console.log(
+				`Добавлен друг: "${user.name}" (${user.id}) ↔ "${friendUser.name}" (${friendId})`,
+			);
+		}
 
 		const friend = await serializeFriend(friendId);
 		if (!friend) {

@@ -64,6 +64,7 @@ export const useSettingsStore = create<SettingsState>()(
 		{
 			name: "wildmint-settings",
 			version: 5,
+			skipHydration: true,
 			migrate: (persistedState) => {
 				const state = persistedState as Partial<SettingsState>;
 

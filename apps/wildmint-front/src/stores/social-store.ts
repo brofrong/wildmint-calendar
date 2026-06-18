@@ -29,6 +29,7 @@ export const useSocialStore = create<SocialState>()(
 		}),
 		{
 			name: "wildmint-social",
+			skipHydration: true,
 		},
 	),
 );
