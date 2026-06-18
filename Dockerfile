@@ -22,7 +22,7 @@ ENV PORT=3000
 COPY package.json bun.lock ./
 COPY apps/wildmint-front/package.json ./apps/wildmint-front/
 COPY apps/wildmint-back/package.json ./apps/wildmint-back/
-RUN bun install --production --frozen-lockfile --filter wildmint-front
+RUN bun install --production --frozen-lockfile --filter wildmint-front --filter wildmint-back
 
 COPY apps/wildmint-back/src ./apps/wildmint-back/src
 COPY apps/wildmint-back/drizzle ./apps/wildmint-back/drizzle
