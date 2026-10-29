@@ -30,17 +30,8 @@ jobs:
       - name: Install dependencies
         run: bun install --frozen-lockfile
 
-      - name: Check environment
-        run: |
-          echo "Bun version:"
-          bun --version
-          echo "Node version:"
-          node --version
-          echo "Package.json scripts:"
-          cat package.json | grep -A 10 "scripts"
-
       - name: Lint
-        run: bun lint --help 2>&1 | head -20 || true
+        run: bun lint .
 
       - name: Format check
         run: bun fmt --check
