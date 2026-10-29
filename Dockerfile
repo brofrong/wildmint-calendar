@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM oven/bun:1.3 AS front-builder
+FROM oven/bun:1.4.4 AS front-builder
 
 WORKDIR /app
 
@@ -12,7 +12,7 @@ RUN bun install --frozen-lockfile --filter wildmint-front
 COPY apps/wildmint-front ./apps/wildmint-front
 RUN bun --filter wildmint-front build
 
-FROM oven/bun:1.3-slim AS runner
+FROM oven/bun:1.4.4-slim AS runner
 
 WORKDIR /app
 
