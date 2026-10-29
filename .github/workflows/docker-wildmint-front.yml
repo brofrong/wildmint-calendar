@@ -25,7 +25,7 @@ jobs:
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
         with:
-          bun-version-file: package.json
+          bun-version: canary # bun lint is only in canary for now
 
       - name: Install dependencies
         run: bun install --frozen-lockfile
@@ -34,7 +34,7 @@ jobs:
         run: bun lint
 
       - name: Format check
-        run: bun format --check
+        run: bun fmt --check
 
       - name: Type check
         run: bun check

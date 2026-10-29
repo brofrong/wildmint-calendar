@@ -3,9 +3,7 @@
   "private": true,
   "scripts": {
     "build": "turbo run build",
-    "dev": "turbo run dev",
-    "lint": "bun lint . --no-script",
-    "format": "bun fmt . --no-script"
+    "dev": "turbo run dev"
   },
   "devDependencies": {
     "turbo": "^2.9.17",
