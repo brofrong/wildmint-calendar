@@ -6,21 +6,21 @@ import { handlePingRequest } from "./ping";
 import { handleSocialRequest } from "./social";
 
 const handlers = [
-	handlePingRequest,
-	handleAuthRequest,
-	handleFriendsRequest,
-	handleFavoritesRequest,
-	handleSocialRequest,
-	handleInfoRequest,
+  handlePingRequest,
+  handleAuthRequest,
+  handleFriendsRequest,
+  handleFavoritesRequest,
+  handleSocialRequest,
+  handleInfoRequest,
 ];
 
 export async function handleApiRequest(req: Request): Promise<Response | null> {
-	for (const handler of handlers) {
-		const response = await handler(req);
-		if (response) {
-			return response;
-		}
-	}
+  for (const handler of handlers) {
+    const response = await handler(req);
+    if (response) {
+      return response;
+    }
+  }
 
-	return null;
+  return null;
 }

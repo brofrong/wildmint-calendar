@@ -1,18 +1,16 @@
-import { defineConfig } from 'vite'
-import { devtools } from '@tanstack/devtools-vite'
-
-import { tanstackStart } from '@tanstack/react-start/plugin/vite'
-import { VitePWA } from 'vite-plugin-pwa'
-
-import viteReact from '@vitejs/plugin-react'
-import tailwindcss from '@tailwindcss/vite'
+import tailwindcss from "@tailwindcss/vite";
+import { devtools } from "@tanstack/devtools-vite";
+import { tanstackStart } from "@tanstack/react-start/plugin/vite";
+import viteReact from "@vitejs/plugin-react";
+import { defineConfig } from "vite";
+import { VitePWA } from "vite-plugin-pwa";
 
 const config = defineConfig({
   resolve: { tsconfigPaths: true },
   server: {
     proxy: {
-      '/api': {
-        target: 'http://localhost:3012',
+      "/api": {
+        target: "http://localhost:3012",
         changeOrigin: true,
       },
     },
@@ -24,25 +22,46 @@ const config = defineConfig({
     viteReact(),
     // Manifest only — sw.js is generated post-build via scripts/generate-sw.ts
     VitePWA({
-      registerType: 'autoUpdate',
+      registerType: "autoUpdate",
       injectRegister: false,
-      includeAssets: ['favicon.ico', 'robots.txt', 'logo192.png', 'logo512.png', 'img/app-showcase.png'],
+      includeAssets: [
+        "favicon.ico",
+        "robots.txt",
+        "logo192.png",
+        "logo512.png",
+        "img/app-showcase.png",
+      ],
       manifest: {
-        name: 'Дикая Мята.',
-        short_name: 'Дикая Мята.',
-        description: 'Festival schedule and map',
-        theme_color: '#0c0a09',
-        background_color: '#0c0a09',
-        display: 'standalone',
-        start_url: '/',
+        name: "Дикая Мята.",
+        short_name: "Дикая Мята.",
+        description: "Festival schedule and map",
+        theme_color: "#0c0a09",
+        background_color: "#0c0a09",
+        display: "standalone",
+        start_url: "/",
         icons: [
-          { src: 'logo192.png', sizes: '192x192', type: 'image/png', purpose: 'any' },
-          { src: 'logo512.png', sizes: '512x512', type: 'image/png', purpose: 'any' },
-          { src: 'logo512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
+          {
+            src: "logo192.png",
+            sizes: "192x192",
+            type: "image/png",
+            purpose: "any",
+          },
+          {
+            src: "logo512.png",
+            sizes: "512x512",
+            type: "image/png",
+            purpose: "any",
+          },
+          {
+            src: "logo512.png",
+            sizes: "512x512",
+            type: "image/png",
+            purpose: "maskable",
+          },
         ],
       },
     }),
   ],
-})
+});
 
-export default config
+export default config;

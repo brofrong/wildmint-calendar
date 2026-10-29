@@ -4,11 +4,11 @@ import { watchTheme } from "@/lib/theme";
 import { useSettingsStore } from "@/stores/settings-store";
 
 export function ThemeProvider() {
-	const theme = useSettingsStore((state) => state.theme);
+  const theme = useSettingsStore((state) => state.theme);
 
-	useEffect(() => {
-		return watchTheme(theme);
-	}, [theme]);
+  useEffect(() => {
+    return watchTheme(theme);
+  }, [theme]);
 
-	return null;
+  return null;
 }

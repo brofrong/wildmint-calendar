@@ -10,31 +10,31 @@ export const CALENDAR_CELL_SIZES = ["sm", "md", "lg", "xl"] as const;
 export type CalendarCellSize = (typeof CALENDAR_CELL_SIZES)[number];
 
 export const CALENDAR_CELL_SIZE_MIN_HEIGHT: Record<CalendarCellSize, number> = {
-	sm: 72,
-	md: 96,
-	lg: 120,
-	xl: 160,
+  sm: 72,
+  md: 96,
+  lg: 120,
+  xl: 160,
 };
 
 export const CALENDAR_CELL_SIZE_SCALE: Record<CalendarCellSize, number> = {
-	sm: 1.3,
-	md: 1.7,
-	lg: 2.2,
-	xl: 2.5,
+  sm: 1.3,
+  md: 1.7,
+  lg: 2.2,
+  xl: 2.5,
 };
 
 export function getCalendarHeight(hourHeight: number): number {
-	return HOURS_IN_DAY * hourHeight;
+  return HOURS_IN_DAY * hourHeight;
 }
 
 export function getHourHeightForCellSize(
-	availableHeight: number,
-	cellSize: CalendarCellSize,
+  availableHeight: number,
+  cellSize: CalendarCellSize,
 ): number {
-	const baseFill = availableHeight / HOURS_IN_DAY;
+  const baseFill = availableHeight / HOURS_IN_DAY;
 
-	return Math.max(
-		CALENDAR_CELL_SIZE_MIN_HEIGHT[cellSize],
-		baseFill * CALENDAR_CELL_SIZE_SCALE[cellSize],
-	);
+  return Math.max(
+    CALENDAR_CELL_SIZE_MIN_HEIGHT[cellSize],
+    baseFill * CALENDAR_CELL_SIZE_SCALE[cellSize],
+  );
 }

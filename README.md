@@ -35,11 +35,20 @@
 
 ### Разработка
 
-Требуется [Bun](https://bun.sh/) 1.3+.
+Требуется [Bun](https://bun.sh/) 1.4.4+.
 
 ```sh
 bun install
 bun --filter wildmint-front dev
+```
+
+### Проверки
+
+```bash
+bun lint             # линтер (bun lint)
+bun fmt              # формат; в CI bun fmt --check
+bun check            # типы
+bun run test         # модульные тесты (Vitest)
 ```
 
 Сборка и запуск production-сервера:
@@ -89,8 +98,8 @@ volumes:
 Для локальной разработки можно использовать bind mount вместо named volume:
 
 ```yaml
-    volumes:
-      - ./data/db:/app/db
+volumes:
+  - ./data/db:/app/db
 ```
 
 Папку `data/db` нужно создать заранее (`mkdir -p data/db`). Файл базы появится после первого запуска.

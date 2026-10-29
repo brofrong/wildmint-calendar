@@ -7,47 +7,47 @@ export type ServerStatus = "checking" | "online" | "offline";
 const PING_INTERVAL_MS = 30_000;
 
 interface ServerStatusState {
-	status: ServerStatus;
-	lastCheckedAt: string | null;
-	startPinging: () => () => void;
+  status: ServerStatus;
+  lastCheckedAt: string | null;
+  startPinging: () => () => void;
 }
 
 export const useServerStatusStore = create<ServerStatusState>((set) => ({
-	status: "checking",
-	lastCheckedAt: null,
-	startPinging: () => {
-		let active = true;
-		let intervalId: ReturnType<typeof setInterval> | null = null;
+  status: "checking",
+  lastCheckedAt: null,
+  startPinging: () => {
+    let active = true;
+    let intervalId: ReturnType<typeof setInterval> | null = null;
 
-		const check = async () => {
-			if (!active) {
-				return;
-			}
+    const check = async () => {
+      if (!active) {
+        return;
+      }
 
-			set({ status: "checking" });
+      set({ status: "checking" });
 
-			const isOnline = await pingServer();
+      const isOnline = await pingServer();
 
-			if (!active) {
-				return;
-			}
+      if (!active) {
+        return;
+      }
 
-			set({
-				status: isOnline ? "online" : "offline",
-				lastCheckedAt: new Date().toISOString(),
-			});
-		};
+      set({
+        status: isOnline ? "online" : "offline",
+        lastCheckedAt: new Date().toISOString(),
+      });
+    };
 
-		void check();
-		intervalId = setInterval(() => {
-			void check();
-		}, PING_INTERVAL_MS);
+    void check();
+    intervalId = setInterval(() => {
+      void check();
+    }, PING_INTERVAL_MS);
 
-		return () => {
-			active = false;
-			if (intervalId) {
-				clearInterval(intervalId);
-			}
-		};
-	},
+    return () => {
+      active = false;
+      if (intervalId) {
+        clearInterval(intervalId);
+      }
+    };
+  },
 }));

@@ -2,9 +2,7 @@
   "version": "7",
   "dialect": "sqlite",
   "id": "decfe72f-3ced-4028-9944-dc9d3aa94ac5",
-  "prevIds": [
-    "00000000-0000-0000-0000-000000000000"
-  ],
+  "prevIds": ["00000000-0000-0000-0000-000000000000"],
   "ddl": [
     {
       "name": "friends_table",
@@ -85,13 +83,9 @@
       "table": "users_table"
     },
     {
-      "columns": [
-        "userId"
-      ],
+      "columns": ["userId"],
       "tableTo": "users_table",
-      "columnsTo": [
-        "id"
-      ],
+      "columnsTo": ["id"],
       "onUpdate": "NO ACTION",
       "onDelete": "NO ACTION",
       "nameExplicit": false,
@@ -100,13 +94,9 @@
       "table": "friends_table"
     },
     {
-      "columns": [
-        "friendId"
-      ],
+      "columns": ["friendId"],
       "tableTo": "users_table",
-      "columnsTo": [
-        "id"
-      ],
+      "columnsTo": ["id"],
       "onUpdate": "NO ACTION",
       "onDelete": "NO ACTION",
       "nameExplicit": false,
@@ -115,27 +105,21 @@
       "table": "friends_table"
     },
     {
-      "columns": [
-        "id"
-      ],
+      "columns": ["id"],
       "nameExplicit": false,
       "name": "friends_table_pk",
       "table": "friends_table",
       "entityType": "pks"
     },
     {
-      "columns": [
-        "id"
-      ],
+      "columns": ["id"],
       "nameExplicit": false,
       "name": "users_table_pk",
       "table": "users_table",
       "entityType": "pks"
     },
     {
-      "columns": [
-        "email"
-      ],
+      "columns": ["email"],
       "nameExplicit": false,
       "name": "users_table_email_unique",
       "entityType": "uniques",

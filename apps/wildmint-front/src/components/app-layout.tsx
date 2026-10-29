@@ -9,22 +9,22 @@ import { useAuthBootstrap } from "@/lib/use-auth-bootstrap";
 import { useServerPing } from "@/lib/use-server-ping";
 
 export function AppLayout() {
-	useServerPing();
-	useAuthBootstrap();
+  useServerPing();
+  useAuthBootstrap();
 
-	useEffect(() => {
-		registerServiceWorker();
-	}, []);
+  useEffect(() => {
+    registerServiceWorker();
+  }, []);
 
-	return (
-		<TooltipProvider>
-			<div className="flex h-dvh flex-col">
-				<ThemeProvider />
-				<main className="min-h-0 flex-1 overflow-y-auto">
-					<Outlet />
-				</main>
-				<NavBar />
-			</div>
-		</TooltipProvider>
-	);
+  return (
+    <TooltipProvider>
+      <div className="flex h-dvh flex-col">
+        <ThemeProvider />
+        <main className="min-h-0 flex-1 overflow-y-auto">
+          <Outlet />
+        </main>
+        <NavBar />
+      </div>
+    </TooltipProvider>
+  );
 }
